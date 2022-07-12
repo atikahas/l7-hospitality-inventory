@@ -1,73 +1,79 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<!doctype html>
+<html lang="en">
+  <head>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+	<title>AR - Inventory</title>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+	<!-- Bootstrap CSS-->
+	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-5.1.3/css/bootstrap.css') }}">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="{{ asset('atrana/css/style.css') }}">
+	<!-- Boostrap Icon-->
+	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-icons/bootstrap-icons.css') }}">
+    @yield('headerScripts')
+</head>
+<body>
+ 
+	<div id="auth">
+        
+		<div class="row h-100">
+			<div class="col-lg-7 d-none d-lg-block">
+				<div id="auth-left">
+ 				</div>
+			</div>
+			<div class="col-lg-5 col-12">
+				<div id="auth-right">
+					<div class="auth-logo">
+						<!-- <a href="index.html"><img src="{{ asset('atrana/images/AR-logo.jpg') }}" alt="Logo"> INVENTORY MANAGEMENT</a>   -->
+					</div>
+					<h1 class="auth-title">Log in.</h1>
+					<p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+		
+					<form method="POST" action="{{ route('login') }}">
+                    @csrf
+						<div class="form-group position-relative has-icon-left mb-4">
+							<input id="email" type="text" class="form-control form-control-xl @error('email') is-invalid @enderror" placeholder="Email" name="email" required autocomplete="email" autofocus>
+							<div class="form-control-icon">
+								<i class="bi bi-person"></i>
+							</div>
+						</div>
+						<div class="form-group position-relative has-icon-left mb-4">
+							<input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+							<div class="form-control-icon">
+								<i class="bi bi-shield-lock"></i>
+							</div>
+						</div>
+						<div class="form-check form-check-lg d-flex align-items-end">
+							<input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+							<label class="form-check-label text-gray-600" for="flexCheckDefault">
+								Keep me logged in
+							</label>
+						</div>
+						<button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ __('Log in') }}</button>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+		
+	 
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+	<!-- General JS Scripts -->
+	<script src="{{ asset('atrana/js/atrana.js') }}"></script>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+	<!-- JS Libraies -->
+	<script src="{{ asset('atrana/modules/jquery/jquery.min.js') }}"></script>
+	<script src="{{ asset('atrana/modules/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{ asset('atrana/modules/popper/popper.min.js') }}"></script>
+ 
+    <!-- Template JS File -->
+	<script src="{{ asset('atrana/js/script.js') }}"></script>
+	<script src="{{ asset('atrana/js/custom.js') }}"></script>
+ </body>
+</html>

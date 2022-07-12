@@ -1,100 +1,79 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<!doctype html>
+<html lang="en">
+  <head>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+	<title>AR - Inventory</title>
 
-            .full-height {
-                height: 100vh;
-            }
+	<!-- Bootstrap CSS-->
+	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-5.1.3/css/bootstrap.css') }}">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="{{ asset('atrana/css/style.css') }}">
+	<!-- Boostrap Icon-->
+	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-icons/bootstrap-icons.css') }}">
+    @yield('headerScripts')
+</head>
+<body>
+ 
+	<div id="auth">
+        
+		<div class="row h-100">
+			<div class="col-lg-7 d-none d-lg-block">
+				<div id="auth-left">
+ 				</div>
+			</div>
+			<div class="col-lg-5 col-12">
+				<div id="auth-right">
+					<div class="auth-logo">
+						<!-- <a href="index.html"><img src="{{ asset('atrana/images/AR-logo.jpg') }}" alt="Logo"> INVENTORY MANAGEMENT</a>   -->
+					</div>
+					<h1 class="auth-title">Log in.</h1>
+					<p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+		
+					<form method="POST" action="{{ route('login') }}">
+                    @csrf
+						<div class="form-group position-relative has-icon-left mb-4">
+							<input id="email" type="text" class="form-control form-control-xl @error('email') is-invalid @enderror" placeholder="Email" name="email" required autocomplete="email" autofocus>
+							<div class="form-control-icon">
+								<i class="bi bi-person"></i>
+							</div>
+						</div>
+						<div class="form-group position-relative has-icon-left mb-4">
+							<input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+							<div class="form-control-icon">
+								<i class="bi bi-shield-lock"></i>
+							</div>
+						</div>
+						<div class="form-check form-check-lg d-flex align-items-end">
+							<input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+							<label class="form-check-label text-gray-600" for="flexCheckDefault">
+								Keep me logged in
+							</label>
+						</div>
+						<button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ __('Log in') }}</button>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+		
+	 
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+	<!-- General JS Scripts -->
+	<script src="{{ asset('atrana/js/atrana.js') }}"></script>
 
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+	<!-- JS Libraies -->
+	<script src="{{ asset('atrana/modules/jquery/jquery.min.js') }}"></script>
+	<script src="{{ asset('atrana/modules/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{ asset('atrana/modules/popper/popper.min.js') }}"></script>
+ 
+    <!-- Template JS File -->
+	<script src="{{ asset('atrana/js/script.js') }}"></script>
+	<script src="{{ asset('atrana/js/custom.js') }}"></script>
+ </body>
 </html>
