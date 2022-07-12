@@ -35,7 +35,8 @@
 						<a class="dropdown-item" href="my-profile.html"><i class="fa fa-user size-icon-1"></i> <span>My Profile</span></a>
 						<a class="dropdown-item" href="settings.html"><i class="fa fa-cog size-icon-1"></i> <span>Settings</span></a>
 						<hr class="dropdown-divider">
-						<a class="dropdown-item" href="#"><i class="fa fa-sign-out-alt  size-icon-1"></i> <span>My Profile</span></a>
+						<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out-alt  size-icon-1"></i> <span>{{ __('Sign Out') }}</span></a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf </form>
 					</ul>
 				</li>
 			</ul>
