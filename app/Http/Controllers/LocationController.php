@@ -21,7 +21,7 @@ class LocationController extends Controller
         try {
             $data = $request->except(['_token']);
             Location::create($data);
-            return redirect('location/add')->withSuccessMessage('Location Added');
+            return redirect('location/add')->with('success', 'Location Added');
         } catch(\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
         }

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{url('')}}/adminlte3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{url('')}}/adminlte3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 	<!-- Toastify CSS -->
-	<link rel="stylesheet" href="{{ asset('atrana/modules/sweetalert/sweetalert.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('atrana/modules/toastr/toastr.min.css') }}">
 	@yield('headerScripts')
 </head>
 
@@ -166,11 +166,19 @@
 	<script src="{{url('')}}/adminlte3/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 	<script src="{{url('')}}/adminlte3/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-	<!-- SweetAlert Js -->
-	<script src="{{ asset('atrana/modules/sweetalert/sweetalert.all.min.js') }}"></script>
-	<script src="{{ asset('atrana/js/sweetalerts.js') }}"></script>
+	<!-- Toastr Js -->
+	<script src="{{ asset('atrana/modules/toastr/toastr.min.js') }}"></script>
 
-	@include('sweetalert::alert')
+	<script>
+
+            @if(Session('success'))
+            toastr.success("{{Session('success')}}");
+            @endif
+            @if(Session('error'))
+            toastr.danger("{{Session('error')}}");
+            @endif
+
+    </script>
 
 
  </body>
