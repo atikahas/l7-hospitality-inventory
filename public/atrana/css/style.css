@@ -101,6 +101,10 @@ table thead {
 p{
  	color: #7c8db5!important;
 }
+
+.text-right {
+	text-align: right;
+}
  
 .transition {
 	-webkit-transition: all .2s ease;
@@ -431,7 +435,8 @@ a.dropdown-item{
 #sidebar .side-dropdown.show {
 	max-height: 1000px;
 }
-#sidebar .side-dropdown a:hover {
+#sidebar .side-dropdown > li > a.active,
+#sidebar .side-dropdown > li > a.active:hover {
 	color:  #51CBFF;
 }
 #sidebar .ads {

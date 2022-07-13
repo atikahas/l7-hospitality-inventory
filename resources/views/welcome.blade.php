@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>AR - Inventory</title>
+	<title>INVENTORY</title>
 
 	<!-- Bootstrap CSS-->
 	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-5.1.3/css/bootstrap.css') }}">

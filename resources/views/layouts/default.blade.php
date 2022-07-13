@@ -5,7 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>INVENTORY</title>
+	<title>INVENTORY - @yield('title')</title>
 	<!-- Bootstrap CSS-->
 	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-5.1.3/css/bootstrap.css') }}">
 	<!-- Style CSS -->
@@ -14,6 +14,12 @@
 	<link rel="stylesheet" href="{{ asset('atrana/modules/fontawesome6.1.1/css/all.css') }}">
 	<!-- Boxicons CSS-->
 	<link rel="stylesheet" href="{{ asset('atrana/modules/boxicons/css/boxicons.min.css') }}">
+	<!-- DataTables -->
+	<link rel="stylesheet" href="{{url('')}}/adminlte3/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{url('')}}/adminlte3/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{url('')}}/adminlte3/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+	<!-- Toastify CSS -->
+	<link rel="stylesheet" href="{{ asset('atrana/modules/sweetalert/sweetalert.min.css') }}">
 	@yield('headerScripts')
 </head>
 
@@ -54,11 +60,22 @@
 
 				<ul class="side-menu">
 					<li>
-						<a href="index.html" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard </a>
+						<a href="index.html"><i class='bx bxs-dashboard icon' ></i> Dashboard </a>
 					</li>
 
 					<!-- Divider-->
 					<li class="divider" data-text="STARTER">STARTER</li>
+
+					<li>
+						<a href="#" class="@yield('location')">
+						<i class='fa fa-location icon' ></i> Location 
+						<i class='bx bx-chevron-right icon-right' ></i>
+						</a>
+						<ul class="side-dropdown @yield('location_menu')">
+							<li><a href="{{url('location/view')}}" class="@yield('view_location')">View Location</a></li>
+							<li><a href="{{url('location/add')}}" class="@yield('add_location')">Add Location</a></li>
+						</ul>
+					</li>
 
 					<li>
 						<a href="#">
@@ -132,5 +149,29 @@
     <!-- Template JS File -->
 	<script src="{{ asset('atrana/js/script.js') }}"></script>
 	<script src="{{ asset('atrana/js/custom.js') }}"></script>
+
+	
+	<!-- DataTables  & Plugins -->
+	<script src="{{url('')}}/adminlte3/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-rowgroup/js/rowGroup.bootstrap4.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/jszip/jszip.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/pdfmake/pdfmake.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/pdfmake/vfs_fonts.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+	<script src="{{url('')}}/adminlte3/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+	<!-- SweetAlert Js -->
+	<script src="{{ asset('atrana/modules/sweetalert/sweetalert.all.min.js') }}"></script>
+	<script src="{{ asset('atrana/js/sweetalerts.js') }}"></script>
+
+	@include('sweetalert::alert')
+
+
  </body>
 </html>
