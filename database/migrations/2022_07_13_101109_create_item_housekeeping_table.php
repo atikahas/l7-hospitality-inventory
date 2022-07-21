@@ -16,6 +16,7 @@ class CreateItemHousekeepingTable extends Migration
         Schema::create('item_housekeeping', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('image');
             $table->integer('category_id')->nullable();
             $table->integer('subcategory_id')->nullable();
             $table->integer('quantity_setA')->nullable();

@@ -64,9 +64,12 @@ Route::group(['middleware' => ['logs']], function() {
         Route::get('admin/metadata/{metadata}', 'AdminController@metaDataEdit');
         Route::post('admin/metadata/{metadata}', 'AdminController@metaDataUpdate');
         Route::post('admin/metadata/{metadata}/delete', 'AdminController@metaDataDelete');
-
+        
+        //Location
         Route::get('location/view', 'LocationController@index');
-        Route::get('location/add', 'LocationController@add');
-        Route::post('location/add', 'LocationController@store');
+        Route::post('location/view', 'LocationController@store');
+
+        //Category
+        Route::get('category/view', 'CategoryController@index');
     });
 });

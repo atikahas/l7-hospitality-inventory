@@ -67,14 +67,7 @@
 					<li class="divider" data-text="STARTER">STARTER</li>
 
 					<li>
-						<a href="#" class="@yield('location')">
-						<i class='fa fa-location icon' ></i> Location 
-						<i class='bx bx-chevron-right icon-right' ></i>
-						</a>
-						<ul class="side-dropdown @yield('location_menu')">
-							<li><a href="{{url('location/view')}}" class="@yield('view_location')">View Location</a></li>
-							<li><a href="{{url('location/add')}}" class="@yield('add_location')">Add Location</a></li>
-						</ul>
+						<a href="{{url('location/view')}}" class="@yield('location')"><i class='fa fa-location icon' ></i> Location </a>
 					</li>
 
 					<li>

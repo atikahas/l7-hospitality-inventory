@@ -15,13 +15,33 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Add Location</h4>
+                    <h4>Add Category</h4>
                 </div>
                 <form action="" method="post">
                 @csrf
                     <div class="card-body"> 
                         <div class="mb-3">
-                            <label>Location</label>
+                            <label>Category</label>
+                            <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter location..." required>
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Add SubCategory</h4>
+                </div>
+                <form action="" method="post">
+                @csrf
+                    <div class="card-body"> 
+                        <div class="mb-3">
+                            <label>SubCategory</label>
                             <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter location..." required>
                         </div>
                     </div>
@@ -35,7 +55,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>List Location</h4>
+                    <h4>List Category & SubCategory</h4>
                 </div>
                 <div class="card-body"> 
                     <div class="table-responsive"> 
@@ -43,7 +63,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col" style="width:5%">No.</th>
-                                    <th scope="col">Location Name</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">SubCategory</th>
                                     <th scope="col">Options</th>
                                 </tr>
                             </thead>
@@ -53,6 +74,7 @@
                                 <?php $count++; ?>
                                 <tr>
                                     <td>{{$count}}</td>
+                                    <td>{{$l->name}}</td>
                                     <td>{{$l->name}}</td>
                                     <td>
                                         <a href="" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-title="Edit User">
