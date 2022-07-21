@@ -68,6 +68,8 @@ Route::group(['middleware' => ['logs']], function() {
         //Location
         Route::get('location/view', 'LocationController@index');
         Route::post('location/view', 'LocationController@store');
+        Route::get('location/edit/{location}', 'LocationController@edit');
+        Route::post('location/edit/{location}', 'LocationController@update');
 
         //Category
         Route::get('category/view', 'CategoryController@index');

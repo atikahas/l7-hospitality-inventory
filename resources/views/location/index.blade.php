@@ -1,8 +1,8 @@
 @extends('layouts.default')
 @section('title', 'Location')
-@section('location_menu', 'side-dropdown show')
+<!-- @section('location_menu', 'side-dropdown show') -->
 @section('location', 'active')
-@section('view_location', 'active')
+<!-- @section('view_location', 'active') -->
 @section('content')
 
 <div class="container-fluid dashboard">
@@ -55,10 +55,10 @@
                                     <td>{{$count}}</td>
                                     <td>{{$l->name}}</td>
                                     <td>
-                                        <a href="" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-title="Edit User">
+                                        <a href="{{url('location/edit/'.$l->id)}}" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-title="Edit User">
                                         <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"  data-toggle="tooltip" data-title="Permanent Delete User">
+                                        <a href="javascript:;" class="btn btn-danger btn-sm"  data-toggle="tooltip" data-title="Permanent Delete Location">
                                         <i class="fa fa-trash"></i>
                                         </a>
                                     </td>

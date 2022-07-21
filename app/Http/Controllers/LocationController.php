@@ -23,4 +23,18 @@ class LocationController extends Controller
             return back()->with('error', $e->getMessage())->withInput();
         }
     }
+
+    public function edit(Location $location) {
+        return view('location.edit', ['location' => $location]);
+    }
+
+    public function update(Request $request, Location $location) {
+        try {
+            $data = $request->except(['_token']);
+            $location->update($data);
+            return redirect('location/view')->with('success', 'Location Updated.');
+        } catch(\Exception $e) {
+            return back()->with('error', $e->getMessage())->withInput();
+        }
+    }
 }
