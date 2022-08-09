@@ -73,5 +73,8 @@ Route::group(['middleware' => ['logs']], function() {
 
         //Category
         Route::get('category/view', 'CategoryController@index');
+        Route::post('category/view', 'CategoryController@store');
+        Route::get('category/edit/{category}', 'CategoryController@edit');
+        Route::post('category/edit/{category}', 'CategoryController@update');
     });
 });

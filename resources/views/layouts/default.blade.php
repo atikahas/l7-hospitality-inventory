@@ -71,14 +71,7 @@
 					</li>
 
 					<li>
-						<a href="#">
-						<i class='fa fa-list icon' ></i> Category 
-						<i class='bx bx-chevron-right icon-right' ></i>
-						</a>
-						<ul class="side-dropdown">
-							<li><a href="layout-default.html">View Category</a></li>
-							<li><a href="layout-top-navigation.html">Add Category</a></li>
-						</ul>
+						<a href="{{url('category/view')}}" class="@yield('category')"><i class='fa fa-list icon' ></i> Category </a>
 					</li>
 
 					<li>
@@ -106,7 +99,7 @@
 
 
 	<!--Content Start-->
-	<div class="content-start transition">
+	<div class="content-start transition" style="padding-top:5px;">
 		@yield('content')
 	</div><!-- End Content -->
 

@@ -1,79 +1,67 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<title>AR - Inventory</title>
-
-	<!-- Bootstrap CSS-->
-	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-5.1.3/css/bootstrap.css') }}">
-	<!-- Style CSS -->
-	<link rel="stylesheet" href="{{ asset('atrana/css/style.css') }}">
-	<!-- Boostrap Icon-->
-	<link rel="stylesheet" href="{{ asset('atrana/modules/bootstrap-icons/bootstrap-icons.css') }}">
-    @yield('headerScripts')
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Aman Rimba Inventory</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{ asset('skydash/template/vendors/feather/feather.css') }}">
+  <link rel="stylesheet" href="{{ asset('skydash/template/vendors/ti-icons/css/themify-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('skydash/template/vendors/css/vendor.bundle.base.css') }}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{ asset('skydash/template/css/vertical-layout-light/style.css') }}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{{ asset('skydash/template/images/favicon_AR.png') }}" />
+  @yield('headerScripts')
 </head>
+
 <body>
- 
-	<div id="auth">
-        
-		<div class="row h-100">
-			<div class="col-lg-7 d-none d-lg-block">
-				<div id="auth-left">
- 				</div>
-			</div>
-			<div class="col-lg-5 col-12">
-				<div id="auth-right">
-					<div class="auth-logo">
-						<!-- <a href="index.html"><img src="{{ asset('atrana/images/AR-logo.jpg') }}" alt="Logo"> INVENTORY MANAGEMENT</a>   -->
-					</div>
-					<h1 class="auth-title">Log in.</h1>
-					<p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
-		
-					<form method="POST" action="{{ route('login') }}">
-                    @csrf
-						<div class="form-group position-relative has-icon-left mb-4">
-							<input id="email" type="text" class="form-control form-control-xl @error('email') is-invalid @enderror" placeholder="Email" name="email" required autocomplete="email" autofocus>
-							<div class="form-control-icon">
-								<i class="bi bi-person"></i>
-							</div>
-						</div>
-						<div class="form-group position-relative has-icon-left mb-4">
-							<input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
-							<div class="form-control-icon">
-								<i class="bi bi-shield-lock"></i>
-							</div>
-						</div>
-						<div class="form-check form-check-lg d-flex align-items-end">
-							<input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-							<label class="form-check-label text-gray-600" for="flexCheckDefault">
-								Keep me logged in
-							</label>
-						</div>
-						<button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">{{ __('Log in') }}</button>
-					</form>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-		
-	 
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <h4>Aman Rimba Inventory System</h4>
+              <h6 class="font-weight-light">Sign in to continue.</h6>
+              <form class="pt-3" form method="POST" action="{{ route('login') }}">
+              @csrf
+                <div class="form-group">
+                  <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" id="exampleInputEmail1" placeholder="Email" name="email" required autocomplete="email" autofocus>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" id="exampleInputPassword1" placeholder="Password" name="password" required autocomplete="current-password">
+                </div>
+                <div class="mt-3">
+                  <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">{{ __('SIGN IN') }}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{{ asset('skydash/template/vendors/js/vendor.bundle.base.js') }}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{{ asset('skydash/template/js/off-canvas.js') }}"></script>
+  <script src="{{ asset('skydash/template/js/hoverable-collapse.js') }}"></script>
+  <script src="{{ asset('skydash/template/js/template.js') }}"></script>
+  <script src="{{ asset('skydash/template/js/settings.js') }}"></script>
+  <script src="{{ asset('skydash/template/js/todolist.js') }}"></script>
+  <!-- endinject -->
+</body>
 
-	<!-- General JS Scripts -->
-	<script src="{{ asset('atrana/js/atrana.js') }}"></script>
-
-	<!-- JS Libraies -->
-	<script src="{{ asset('atrana/modules/jquery/jquery.min.js') }}"></script>
-	<script src="{{ asset('atrana/modules/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}"></script>
-	<script src="{{ asset('atrana/modules/popper/popper.min.js') }}"></script>
- 
-    <!-- Template JS File -->
-	<script src="{{ asset('atrana/js/script.js') }}"></script>
-	<script src="{{ asset('atrana/js/custom.js') }}"></script>
- </body>
 </html>
