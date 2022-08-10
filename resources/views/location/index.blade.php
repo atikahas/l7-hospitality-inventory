@@ -1,53 +1,52 @@
-@extends('layouts.default')
+@extends('layouts.skydash')
 @section('title', 'Location')
 <!-- @section('location_menu', 'side-dropdown show') -->
 @section('location', 'active')
 <!-- @section('view_location', 'active') -->
 @section('content')
 
-<div class="container-fluid dashboard">
-    <div class="content-header">
-        <h1>Location</h1>
-        <p></p>
-    </div>
-    <div class="row">
-
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Add Location</h4>
-                </div>
-                <form action="" method="post">
-                @csrf
-                    <div class="card-body"> 
-                        <div class="mb-3">
-                            <label>Location</label>
-                            <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter location..." required>
-                        </div>
-                    </div>
-                    <div class="card-footer text-right">
-                        <button class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+<div class="row">
+    <div class="col-md-12 grid-margin">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Location Management</h3>
             </div>
         </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Location</h4>
+        <form class="forms-sample" action="" method="post">
+        @csrf
+          <div class="form-group">
+            <label for="exampleInputUsername1">Location</label>
+            <input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter location..." required>
+          </div>
+          <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">List Location</h4>
         
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4>List Location</h4>
-                </div>
-                <div class="card-body"> 
-                    <div class="table-responsive"> 
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="width:5%">No.</th>
-                                    <th scope="col">Location Name</th>
-                                    <th scope="col">Options</th>
-                                </tr>
-                            </thead>
-                            <?php $count = 0; ?>
+              <table id="listlocation" class="table table-bordered table-striped table-responsive table-hover">
+                <thead>
+                <tr>
+                  <th style="width:5%">No.</th>
+                  <th style="width:85%">Location Name</th>
+                  <th>Options</th>
+                </tr>
+                </thead>
+                <?php $count = 0; ?>
                             <tbody>
                                 @foreach($location as $l)
                                 <?php $count++; ?>
@@ -55,31 +54,43 @@
                                     <td>{{$count}}</td>
                                     <td>{{$l->name}}</td>
                                     <td>
-                                        <a href="{{url('location/edit/'.$l->id)}}" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-title="Edit User">
-                                        <i class="fa fa-edit"></i>
+                                        <a href="{{url('location/edit/'.$l->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit User">
+                                        <i class="ti-pencil"></i>
                                         </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"  data-toggle="tooltip" data-title="Permanent Delete Location">
-                                        <i class="fa fa-trash"></i>
+                                        <a href="javascript:;" class="badge badge-danger"  data-toggle="tooltip" data-title="Permanent Delete Location">
+                                        <i class="ti-trash"></i>
                                         </a>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+              </table>
 
+
+      </div>
     </div>
+  </div>
 </div>
+
+
 
 @endsection
 
 @section('footerScripts')
-
-    <script>
-
-    </script>
-
+<script>
+  $(function () {
+    $('#listlocation').DataTable({
+      rowReorder: {
+            selector: 'td:nth-child(2)'
+        },
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'responsive'  : true,
+      'autoWidth'   : true
+    })
+  })
+</script>
 @endsection

@@ -5,26 +5,21 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Dynamic - @yield('title')</title>
+  <title>AR - @yield('title')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/css/vendor.bundle.base.css') }}">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('skydash/template/js/select.dataTables.min.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/select2/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('skydash/template/css/vertical-layout-light/style.css') }}">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('skydash/template/images/logo-mini.svg') }}" />
-  <!-- mid icon -->
+  <link rel="shortcut icon" href="{{ asset('skydash/template/images/favicon_AR.png') }}" />
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/pwstabs/jquery.pwstabs.min.css') }}">
+  <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
   @yield('headerScripts')
 </head>
 <body>
@@ -83,7 +78,7 @@
             </a>
           </li>
           <li class="nav-item @yield('location')">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{url('location/view')}}">
               <i class="ti-location-pin menu-icon"></i>
               <span class="menu-title">Location</span>
             </a>
@@ -146,10 +141,24 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="{{ asset('skydash/template/js/dashboard.js') }}"></script>
+  <script src="{{ asset('skydash/template/js/data-table.js') }}"></script>
+  <script src="{{ asset('skydash/template/js/dataTables.select.min.js') }}"></script>
   <script src="{{ asset('skydash/template/js/Chart.roundedBarCharts.js') }}"></script>
   <script src="{{ asset('skydash/template/js/select2.js') }}"></script>
   <script src="{{ asset('skydash/template/vendors/pwstabs/jquery.pwstabs.min.js') }}"></script>
   <!-- End custom js for this page-->
+  <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+	<script>
+
+            @if(Session('success'))
+            toastr.success("{{Session('success')}}");
+            @endif
+            @if(Session('error'))
+            toastr.danger("{{Session('error')}}");
+            @endif
+
+    </script>
 
   @yield('footerScripts')
 </body>
