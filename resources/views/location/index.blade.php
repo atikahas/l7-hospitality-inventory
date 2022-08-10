@@ -37,36 +37,33 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">List Location</h4>
-        
-              <table id="listlocation" class="table table-bordered table-striped table-responsive table-hover">
-                <thead>
-                <tr>
-                  <th style="width:5%">No.</th>
-                  <th style="width:85%">Location Name</th>
-                  <th>Options</th>
-                </tr>
-                </thead>
-                <?php $count = 0; ?>
-                            <tbody>
-                                @foreach($location as $l)
-                                <?php $count++; ?>
-                                <tr>
-                                    <td>{{$count}}</td>
-                                    <td>{{$l->name}}</td>
-                                    <td>
-                                        <a href="{{url('location/edit/'.$l->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit User">
-                                        <i class="ti-pencil"></i>
-                                        </a>
-                                        <a href="javascript:;" class="badge badge-danger"  data-toggle="tooltip" data-title="Permanent Delete Location">
-                                        <i class="ti-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-              </table>
-
-
+        <table id="listlocation" class="table table-bordered table-striped table-responsive table-hover">
+          <thead>
+            <tr>
+              <th style="width:5%">No.</th>
+              <th style="width:85%">Location Name</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <?php $count = 0; ?>
+          <tbody>
+            @foreach($location as $l)
+            <?php $count++; ?>
+              <tr>
+                <td>{{$count}}</td>
+                <td>{{$l->name}}</td>
+                <td>
+                  <a href="{{url('location/edit/'.$l->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit User">
+                  <i class="ti-pencil"></i>
+                  </a>
+                  <a href="javascript:;" class="badge badge-danger"  data-toggle="tooltip" data-title="Permanent Delete Location">
+                  <i class="ti-trash"></i>
+                  </a>
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

@@ -83,6 +83,12 @@
               <span class="menu-title">Location</span>
             </a>
           </li>
+          <li class="nav-item @yield('category')">
+            <a class="nav-link" href="{{url('category/view')}}">
+              <i class="ti-layout-list-thumb menu-icon"></i>
+              <span class="menu-title">Category</span>
+            </a>
+          </li>
 
           <!-- <li class="nav-item @yield('activity')">
             <a class="nav-link" data-toggle="collapse" href="#ui-activity" aria-expanded="false" aria-controls="ui-basic">
@@ -123,6 +129,7 @@
 
   <!-- plugins:js -->
   <script src="{{ asset('skydash/template/vendors/js/vendor.bundle.base.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{{ asset('skydash/template/vendors/chart.js/Chart.min.js') }}"></script>

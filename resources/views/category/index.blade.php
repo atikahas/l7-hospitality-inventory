@@ -1,114 +1,135 @@
-@extends('layouts.default')
-@section('title', 'Location')
-@section('location_menu', 'side-dropdown show')
-@section('location', 'active')
-@section('view_location', 'active')
+@extends('layouts.skydash')
+@section('title', 'Category')
+@section('category', 'active')
 @section('content')
-
-<div class="container-fluid dashboard">
-    <div class="content-header">
-        <h1>Location</h1>
-        <p></p>
-    </div>
-    <div class="row">
-
 <div class="row">
-<div class="col-xl-4 col-md-6 col-sm-12">
-					<div class="card">
-						<div class="card-content">
-							<div class="card-body">
-								<h4 class="card-title">Card With Header And Footer</h4>
-								<p class="card-text">
-									Gummies bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll. Toffee
-									sugar plum sugar plum jelly-o jujubes bonbon dessert carrot cake.
-								</p>
-							</div>
-							<img class="img-fluid w-100" src="assets/images/card/banana.jpg" alt="Card image cap">
-						</div>
-						<div class="card-footer d-flex justify-content-between">
-							<span>Card Footer</span>
-							<button class="btn btn-light-primary">Read More</button>
-						</div>
-					</div>
-					<div class="card collapse-icon accordion-icon-rotate">
-						<div class="card-header">
-							<h1 class="card-title pl-1">Accordion</h1>
-						</div>
-						<div class="card-content">
-							<div class="card-body">
-								<div class="accordion" id="cardAccordion">
-										<div class="card-header" id="headingOne" data-bs-toggle="collapse"
-											data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"
-											role="button">
-											<span class="collapsed collapse-title">Accordion Item 1</span>
-										</div>
-										<div id="collapseOne" class="collapse pt-1" aria-labelledby="headingOne"
-											data-parent="#cardAccordion">
-											<div class="card-body">
-												Cheesecake muffin cupcake dragée lemon drops tiramisu cake gummies chocolate
-												cake. Marshmallow tart
-												croissant. Tart dessert tiramisu marzipan lollipop lemon drops.
-											</div>
-										</div>
-									<div class=" collapse-header">
-										<div class="card-header" id="headingTwo" data-bs-toggle="collapse"
-											data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-											role="button">
-											<span class="collapsed collapse-title">Accordion Item 2</span>
-										</div>
-										<div id="collapseTwo" class="collapse pt-1" aria-labelledby="headingTwo"
-											data-parent="#cardAccordion">
-											<div class="card-text">
-												Pastry pudding cookie toffee bonbon jujubes jujubes powder topping. Jelly
-												beans
-												gummi bears sweet
-												roll bonbon muffin liquorice. Wafer lollipop sesame snaps.
-											</div>
-										</div>
-									</div>
-									<div class=" open">
-										<div class="card-header" id="headingThree" data-bs-toggle="collapse"
-											data-bs-target="#collapseThree" aria-expanded="true"
-											aria-controls="collapseThree" role="button">
-											<span class="collapsed collapse-title">Accordion Item 3</span>
-										</div>
-										<div id="collapseThree" class="collapse show pt-1" aria-labelledby="headingThree"
-											data-parent="#cardAccordion">
-											<div class="card-text">
-												Sweet pie candy jelly. Sesame snaps biscuit sugar plum. Sweet roll topping
-												fruitcake. Caramels
-												liquorice biscuit ice cream fruitcake cotton candy tart.
-											</div>
-										</div>
-									</div>
-										<div class="card-header" id="headingFour" data-bs-toggle="collapse"
-											data-bs-target="#collapseFour" aria-expanded="false"
-											aria-controls="collapseFour" role="button">
-											<span class="collapsed  collapse-title">Accordion Item 4</span>
-										</div>
-										<div id="collapseFour" class="collapse pt-1" aria-labelledby="headingFour"
-											data-parent="#cardAccordion">
-											<div class="card-text">
-												Sweet pie candy jelly. Sesame snaps biscuit sugar plum. Sweet roll topping
-												fruitcake. Caramels
-												liquorice biscuit ice cream fruitcake cotton candy tart.
-											</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+    <div class="col-md-12 grid-margin">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <h3 class="font-weight-bold">Category Management</h3>
+				<h6 class="font-weight-normal mb-0">Click button below to add category & subcategory.</h6>
+            </div>
+        </div>
+    </div>
 </div>
 
+<div class="row">
+	<div class="col-md-12 grid-margin">
+	<p>
+		<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="collapseExample">
+			Category
+		</button>
+		<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#subcategory" aria-expanded="false" aria-controls="collapseExample">
+			Subcategory
+		</button>
+		</p>
+
+		<div class="collapse" id="category">
+			<div class="card grid-margin stretch-card">
+				<div class="card-body">
+					<h4 class="card-title">Add Category</h4>
+					<form class="forms-sample" action="" method="post">
+					@csrf
+						<div class="form-group">
+							<label>Location</label>
+							<input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter category..." required>
+						</div>
+						<button type="submit" class="btn btn-primary mr-2">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="collapse" id="subcategory">
+			<div class="card grid-margin stretch-card">
+				<div class="card-body">
+					<h4 class="card-title">Add SubCategory</h4>
+					<form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+					@csrf
+					<div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Category</label>
+                                <select class="form-control form-control-md" name="category_id" required></select>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+							<div class="form-group">
+								<label>SubCategory</label>
+								<input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Enter subcategory..." required>
+							</div>
+                        </div>
+                    </div>
+						<button type="submit" class="btn btn-primary mr-2">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">List Category</h4>
+        <table id="listlocation" class="table table-bordered table-striped table-responsive table-hover">
+          <thead>
+            <tr>
+              <th style="width:5%">No.</th>
+              <th style="width:30%">Category</th>
+			  <th style="width:85%">SubCategory</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+		  <?php $count = 0; ?>
+          <tbody>
+				@foreach($category as $c)
+				<?php $count++; ?>
+				<tr>
+					<td>{{$count}}</td>
+					<td>{{$c->name}}</td>
+					<td>{{$c->name}}</td>
+					<td>
+						<a href="{{url('category/edit/'.$c->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit User">
+						<i class="ti-pencil"></i>
+						</a>
+						<a href="javascript:;" class="badge badge-danger"  data-toggle="tooltip" data-title="Permanent Delete Category">
+						<i class="ti-trash"></i>
+						</a>
+					</td>
+				</tr>
+				@endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection
 
 @section('footerScripts')
 
-    <script>
+<script>
+$(document).ready(function() {
+    getCategory();
+});
 
-    </script>
+function getCategory() {
+    $.ajax({
+        url: "{{url('data/getCategory')}}",
+        type: "GET",
+        success: function(response) {
+            console.log(response);
+            var category = '';
+            $.each(response, function(index,value) {
+                category += '<option value="'+value.id+'">'+value.name+'</option>'
+            });
+            $("select[name=category_id]").html('<option value="">-- Select Category --</option>' + category);
+        }
+    });
+}
+</script>
 
 @endsection
