@@ -12,7 +12,7 @@ class Category extends Model
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
 
-    public function SubCatgeory() {
-        return $this->hasMany('App\Models\SubCategory', 'category_id');
+    public function SubCategory() {
+        return $this->hasMany('App\Models\SubCategory', 'category_id', 'id');
     }
 }

@@ -13,9 +13,4 @@ class SubCategory extends Model
     protected $table = 'item_subcategory';
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
-
-    public function Category() {
-        $catgory = DB::connection('l7_invntory')->table('item_category')->where('id', $this->id)->first();
-        return $catgory->catgory;
-    }
 }

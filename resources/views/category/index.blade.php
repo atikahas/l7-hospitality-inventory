@@ -15,20 +15,19 @@
 
 <div class="row">
 	<div class="col-md-12 grid-margin">
-	<p>
-		<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="collapseExample">
-			Category
-		</button>
-		<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#subcategory" aria-expanded="false" aria-controls="collapseExample">
-			Subcategory
-		</button>
+		<p>
+			<button class="btn btn-outline-primary btn-icon-text" type="button" data-bs-toggle="collapse" data-bs-target="#category" aria-expanded="false" aria-controls="collapseExample">
+				<i class="ti-plus btn-icon-prepend"></i> Add Category
+			</button>
+			<button class="btn btn-outline-primary btn-icon-text" type="button" data-bs-toggle="collapse" data-bs-target="#subcategory" aria-expanded="false" aria-controls="collapseExample">
+				<i class="ti-plus btn-icon-prepend"></i> Add SubCategory
+			</button>
 		</p>
-
 		<div class="collapse" id="category">
 			<div class="card grid-margin stretch-card">
 				<div class="card-body">
 					<h4 class="card-title">Add Category</h4>
-					<form class="forms-sample" action="" method="post">
+					<form class="forms-sample" action="{{url('category/category/store')}}" method="post">
 					@csrf
 						<div class="form-group">
 							<label>Location</label>
@@ -39,12 +38,11 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="collapse" id="subcategory">
 			<div class="card grid-margin stretch-card">
 				<div class="card-body">
 					<h4 class="card-title">Add SubCategory</h4>
-					<form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+					<form class="forms-sample" action="{{url('category/subcategory/store')}}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="row">
                         <div class="col-md-4">
@@ -72,36 +70,112 @@
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">List Category</h4>
-        <table id="listlocation" class="table table-bordered table-striped table-responsive table-hover">
-          <thead>
-            <tr>
-              <th style="width:5%">No.</th>
-              <th style="width:30%">Category</th>
-			  <th style="width:85%">SubCategory</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-		  <?php $count = 0; ?>
-          <tbody>
-				@foreach($category as $c)
-				<?php $count++; ?>
-				<tr>
-					<td>{{$count}}</td>
-					<td>{{$c->name}}</td>
-					<td>{{$c->name}}</td>
-					<td>
-						<a href="{{url('category/edit/'.$c->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit User">
-						<i class="ti-pencil"></i>
-						</a>
-						<a href="javascript:;" class="badge badge-danger"  data-toggle="tooltip" data-title="Permanent Delete Category">
-						<i class="ti-trash"></i>
-						</a>
-					</td>
-				</tr>
-				@endforeach
-          </tbody>
-        </table>
+	  <div class="card">
+			<div class="card-header">
+				<ul class="nav nav-tabs card-header-tabs" id="category-list" role="allist">
+					<li class="nav-item">
+						<a class="nav-link active" href="#allist" role="tab" aria-controls="allist" aria-selected="true">All List</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link"  href="#history" role="tab" aria-controls="history" aria-selected="false">Category List</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#deals" role="tab" aria-controls="deals" aria-selected="false">SubCategory List</a>
+					</li>
+				</ul>
+			</div>
+			<div class="card-body">
+				<div class="tab-content" style="border:0px;">
+					<div class="tab-pane active" id="allist" role="tabpanel">
+						<table id="listall" class="table table-bordered table-striped table-responsive table-hover">
+						<thead>
+							<tr>
+							<th style="width:5%">No.</th>
+							<th style="width:30%">Category</th>
+							<th style="width:85%">SubCategory</th>
+							</tr>
+						</thead>
+						<?php $count = 0; ?>
+						<tbody>
+								@foreach($allcategory as $a)
+								<?php $count++; ?>
+								<tr>
+									<td>{{$count}}</td>
+									<td>{{$a->category}}</td>
+									<td>{{$a->subcategory}}</td>
+								</tr>
+								@endforeach
+						</tbody>
+						</table>
+					</div>
+
+					<div class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">  
+						<table id="listcategory" class="table table-bordered table-striped table-responsive table-hover">
+						<thead>
+							<tr>
+							<th style="width:5%">No.</th>
+							<th style="width:85%">Category</th>
+							<th>Option</th>
+							</tr>
+						</thead>
+						<?php $count = 0; ?>
+						<tbody>
+								@foreach($category as $c)
+								<?php $count++; ?>
+								<tr>
+									<td>{{$count}}</td>
+									<td>{{$c->name}}</td>
+									<td>
+										<a href="{{url('category/edit-category/'.$c->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit User">
+										<i class="ti-pencil"></i>
+										</a>
+										<a href="javascript:;" class="badge badge-danger"  data-toggle="tooltip" data-title="Permanent Delete Location">
+										<i class="ti-trash"></i>
+										</a>
+									</td>
+								</tr>
+								@endforeach
+						</tbody>
+						</table>
+					</div>
+
+					<div class="tab-pane" id="deals" role="tabpanel" aria-labelledby="deals-tab">
+						<table id="listsubcategory" class="table table-bordered table-striped table-responsive table-hover">
+						<thead>
+							<tr>
+							<th style="width:5%">No.</th>
+							<th style="width:30%">Category</th>
+							<th style="width:85%">SubCategory</th>
+							<th>Option</th>
+							</tr>
+						</thead>
+						<?php $count = 0; ?>
+						<tbody>
+								@foreach($allcategory as $a)
+								<?php $count++; ?>
+								@if($a->subcategory == '')
+								@else
+								<tr>
+									<td>{{$count}}</td>
+									<td>{{$a->category}}</td>
+									<td>{{$a->subcategory}}</td>
+									<td>
+										<a href="{{url('category/edit-subcategory/'.$a->subcategory_id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit User">
+										<i class="ti-pencil"></i>
+										</a>
+										<a href="javascript:;" class="badge badge-danger"  data-toggle="tooltip" data-title="Permanent Delete Location">
+										<i class="ti-trash"></i>
+										</a>
+									</td>
+								</tr>
+								@endif
+								@endforeach
+						</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
       </div>
     </div>
   </div>
@@ -112,6 +186,13 @@
 @section('footerScripts')
 
 <script>
+
+$('#category-list a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+
+
 $(document).ready(function() {
     getCategory();
 });
@@ -130,6 +211,27 @@ function getCategory() {
         }
     });
 }
+
+  $(function () {
+    $('#listall').DataTable();
+	$('#listcategory').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    });
+	$('#listsubcategory').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    });
+  });
+
 </script>
 
 @endsection
