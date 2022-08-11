@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/css/vertical-layout-light/style.css') }}">
   <link rel="shortcut icon" href="{{ asset('skydash/template/images/favicon_AR.png') }}" />
-  <link rel="stylesheet" href="{{ asset('skydash/template/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/pwstabs/jquery.pwstabs.min.css') }}">
   <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
   @yield('headerScripts')

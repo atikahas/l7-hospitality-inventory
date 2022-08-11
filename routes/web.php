@@ -76,7 +76,7 @@ Route::group(['middleware' => ['logs']], function() {
         Route::post('category/category/store', 'CategoryController@store');
         Route::post('category/subcategory/store', 'SubCategoryController@store');
         Route::get('category/edit-category/{category}', 'CategoryController@editCategory');
-        Route::get('category/edit-subcategory/{category}', 'CategoryController@editSubCategory');
+        Route::get('category/edit-subcategory/{subcategory}', 'SubCategoryController@editSubCategory');
         Route::post('category/edit-category/{category}', 'CategoryController@update');
 
          //Dropdown

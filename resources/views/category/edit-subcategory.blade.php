@@ -11,38 +11,24 @@
         </div>
     </div>
 </div>
-
 <div class="row">
 	<div class="col-md-12 grid-margin">
         <div class="card grid-margin stretch-card">
             <div class="card-body">
-                <h4 class="card-title">Edit Category</h4>
-                <form class="forms-sample" action="{{url('category/category/store')}}" method="post">
-                @csrf
-                    <div class="form-group">
-                        <label>Location</label>
-                        <input type="text" class="form-control" name="name" value="{{$category->name}}" placeholder="Enter category..." required>
-                    </div>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                </form>
-            </div>
-        </div>
-        <div class="card grid-margin stretch-card">
-            <div class="card-body">
                 <h4 class="card-title">Edit SubCategory</h4>
-                <form class="forms-sample" action="{{url('category/subcategory/store')}}" method="post" enctype="multipart/form-data">
+                <form class="forms-sample" action="" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Category</label>
-                            <select class="form-control form-control-md" name="category_id" value="{{$category->name}}" required></select>
+                            <select class="form-control form-control-md" name="category_id" required></select>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="form-group">
                             <label>SubCategory</label>
-                            <input type="text" class="form-control" name="name" value="{{$category->name}}" placeholder="Enter subcategory..." required>
+                            <input type="text" class="form-control" name="name" value="{{$subcategory->name}}" placeholder="Enter subcategory..." required>
                         </div>
                     </div>
                 </div>
@@ -52,7 +38,6 @@
         </div>
 	</div>
 </div>
-
 @endsection
 
 @section('footerScripts')
