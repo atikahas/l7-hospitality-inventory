@@ -81,5 +81,9 @@ Route::group(['middleware' => ['logs']], function() {
 
          //Dropdown
          Route::get('data/getCategory', 'DropdownController@getCategory');
+
+         //Housekeeping
+         Route::get('housekeeping/view', 'HousekeepingController@index');
+
     });
 });

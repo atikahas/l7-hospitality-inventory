@@ -2,7 +2,7 @@
 @section('title', 'Location')
 <!-- @section('location_menu', 'side-dropdown show') -->
 @section('location', 'active')
-<!-- @section('view_location', 'active') -->
+<!-- @section('location_view', 'active') -->
 @section('content')
 
 <div class="row">

@@ -71,7 +71,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item @yield('dashboard')">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -86,6 +86,12 @@
             <a class="nav-link" href="{{url('category/view')}}">
               <i class="ti-layout-list-thumb menu-icon"></i>
               <span class="menu-title">Category</span>
+            </a>
+          </li>
+          <li class="nav-item @yield('housekeeping')">
+            <a class="nav-link" href="{{url('housekeeping/view')}}">
+              <i class="ti-brush-alt menu-icon"></i>
+              <span class="menu-title">Housekeeping</span>
             </a>
           </li>
 
@@ -164,6 +170,15 @@
             toastr.danger("{{Session('error')}}");
             @endif
 
+    </script>
+    <script>
+      $(document).ready(function(){
+  $('.nav-item').each(function(tab,index){
+    if(index==0){
+     tab.addClass('active');
+    }
+  });
+ });
     </script>
 
   @yield('footerScripts')
