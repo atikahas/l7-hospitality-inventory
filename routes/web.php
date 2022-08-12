@@ -84,6 +84,7 @@ Route::group(['middleware' => ['logs']], function() {
 
          //Housekeeping
          Route::get('housekeeping/view', 'HousekeepingController@index');
+         Route::get('housekeeping/add', 'HousekeepingController@add');
 
     });
 });

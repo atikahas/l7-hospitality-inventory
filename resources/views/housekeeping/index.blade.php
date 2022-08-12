@@ -15,11 +15,18 @@
     </div>
 </div>
 <div class="row">
+  <div class="col-md-12 grid-margin">
+        <a href="{{url('housekeeping/add')}}" class="btn btn-outline-primary btn-icon-text" data-toggle="tooltip" data-title="Edit User">
+            <i class="ti-plus btn-icon-prepend"></i> Add Item
+        </a>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">List Housekeeping Item</h4>
-
+            
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemHousekeepingTable extends Migration
+class CreateSublocationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateItemHousekeepingTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_housekeeping', function (Blueprint $table) {
+        Schema::create('item_sublocation', function (Blueprint $table) {
             $table->id();
+            $table->string('location_id')->nullable();
             $table->string('name')->nullable();
-            $table->string('image');
-            $table->integer('category_id')->nullable();
-            $table->integer('subcategory_id')->nullable();
-            $table->integer('quantity_setA')->nullable();
-            $table->integer('quantity_setB')->nullable();
-            $table->integer('stock')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +29,6 @@ class CreateItemHousekeepingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_housekeeping');
+        Schema::dropIfExists('item_sublocation');
     }
 }
