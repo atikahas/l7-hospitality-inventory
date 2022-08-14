@@ -37,13 +37,13 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="exampleInputUsername1">Category</label>
+                                <label>Category</label>
                                 <select class="form-control form-control-sm" name="category_id" required></select>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="exampleInputUsername1">SubCategory</label>
+                                <label>SubCategory</label>
                                 <select class="form-control form-control-sm" name="subcategory_id" required></select>
                             </div>
                         </div>
@@ -126,4 +126,87 @@
 @endsection
 
 @section('footerScripts')
+<script>
+
+$(document).ready(function() {
+    getLocation();
+});
+
+$(document).on("change", "select[name=location_id]", function() {
+    var location = $(this).val();
+    getSubLocation(location);
+});
+
+function getLocation() {
+    $.ajax({
+        url: "{{url('data/getLocation')}}",
+        type: "GET",
+        success: function(response) {
+            console.log(response);
+            var location = '';
+            $.each(response, function(index,value) {
+                location += '<option value="'+value.id+'">'+value.name+'</option>'
+            });
+            $("select[name=location_id]").html('<option value="">-- Select Location --</option>' + location);
+        }
+    });
+}
+
+function getSubLocation(location) {
+    $.ajax({
+        url: "{{url('data/getSubLocation')}}",
+        type: "GET",
+        data: "location_id=" + location,
+        success: function(response) {
+            console.log(response);
+            var sublocation = '';
+            $.each(response, function(index,value) {
+                sublocation += '<option value="'+value.id+'">'+value.name+'</option>'
+            });
+            $("select[name=sublocation_id]").html('<option value="">-- Select SubLocation --</option>' + sublocation);
+        }
+    });
+}
+
+$(document).ready(function() {
+    getCategory();
+});
+
+$(document).on("change", "select[name=category_id]", function() {
+    var category = $(this).val();
+    getSubCategory(category);
+});
+
+function getCategory() {
+    $.ajax({
+        url: "{{url('data/getCategory')}}",
+        type: "GET",
+        success: function(response) {
+            console.log(response);
+            var category = '';
+            $.each(response, function(index,value) {
+                category += '<option value="'+value.id+'">'+value.name+'</option>'
+            });
+            $("select[name=category_id]").html('<option value="">-- Select Category --</option>' + category);
+        }
+    });
+}
+
+function getSubCategory(category) {
+    $.ajax({
+        url: "{{url('data/getSubCategory')}}",
+        type: "GET",
+        data: "category_id=" + category,
+        success: function(response) {
+            console.log(response);
+            var subcategory = '';
+            $.each(response, function(index,value) {
+                subcategory += '<option value="'+value.id+'">'+value.name+'</option>'
+            });
+            $("select[name=subcategory_id]").html('<option value="">-- Select SubCategory --</option>' + subcategory);
+        }
+    });
+}
+
+</script>
 @endsection

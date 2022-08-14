@@ -26,6 +26,35 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">List Housekeeping Item</h4>
+            <table id="listhousekeeping" class="table table-bordered table-striped table-responsive table-hover">
+						<thead>
+							<tr>
+							<th style="width:5%">No.</th>
+							<th style="width:30%">Item</th>
+							<th style="width:85%">Stock Status</th>
+							</tr>
+						</thead>
+						<?php $count = 0; ?>
+						<tbody>
+								@foreach($housekeeping as $h)
+								<?php $count++; ?>
+								<tr>
+									<td>{{$count}}</td>
+									<td>{{$h->item_name}}</td>
+									<td>
+                    @if( ($h->current_stock - $h->initial_stock) < 0 )
+                    <label class="badge badge-danger" style="width:50px">{{$h->current_stock - $h->initial_stock}}</label>
+                    @elseif( ($h->current_stock - $h->initial_stock) == 0 )
+                    <label class="badge badge-secondary" style="width:50px">{{$h->current_stock - $h->initial_stock}}</label>
+                    @else
+                    <label class="badge badge-success" style="width:50px">{{$h->current_stock - $h->initial_stock}}</label>
+                    @endif
+                  </td>
+								</tr>
+
+								@endforeach
+						</tbody>
+						</table>
             
       </div>
     </div>
@@ -34,7 +63,29 @@
 
 
 
+
+
+
 @endsection
 
 @section('footerScripts')
+
+<script>
+  $(function () {
+	$('#listhousekeeping').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    });
+  });
+</script>
+
+<style>
+tr.collapse.in {
+  display:table-row;
+}</style>
+
 @endsection

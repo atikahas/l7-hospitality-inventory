@@ -80,10 +80,13 @@ Route::group(['middleware' => ['logs']], function() {
         Route::post('category/edit-category/{category}', 'CategoryController@update');
 
          //Dropdown
+         Route::get('data/getLocation', 'DropdownController@getLocation');
+         Route::get('data/getSubLocation', 'DropdownController@getSubLocation');
          Route::get('data/getCategory', 'DropdownController@getCategory');
+         Route::get('data/getSubCategory', 'DropdownController@getSubCategory');
 
          //Housekeeping
-         Route::get('housekeeping/view', 'HousekeepingController@index');
+         Route::get('housekeeping', 'HousekeepingController@index');
          Route::get('housekeeping/add', 'HousekeepingController@add');
 
     });

@@ -71,25 +71,13 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item @yield('dashboard')">
-            <a class="nav-link" href="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js">
+            <a class="nav-link" href="{{url('home')}}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item @yield('location')">
-            <a class="nav-link" href="{{url('location/view')}}">
-              <i class="ti-location-pin menu-icon"></i>
-              <span class="menu-title">Location</span>
-            </a>
-          </li>
-          <li class="nav-item @yield('category')">
-            <a class="nav-link" href="{{url('category/view')}}">
-              <i class="ti-layout-list-thumb menu-icon"></i>
-              <span class="menu-title">Category</span>
-            </a>
-          </li>
           <li class="nav-item @yield('housekeeping')">
-            <a class="nav-link" href="{{url('housekeeping/view')}}">
+            <a class="nav-link" href="{{url('housekeeping')}}">
               <i class="ti-brush-alt menu-icon"></i>
               <span class="menu-title">Housekeeping</span>
             </a>
