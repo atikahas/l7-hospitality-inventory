@@ -30,36 +30,52 @@
 						<thead>
 							<tr>
 							<th style="width:5%">No.</th>
-							<th style="width:30%">Item</th>
-							<th style="width:85%">Stock Status</th>
+              <th>Location</th>
+              <th>Category</th>
+              <th>SubCategory</th>
+							<th>Item</th>
+              <th>In Stock</th>
+							<th>Stock Status</th>
+              <th>Option</th>
 							</tr>
 						</thead>
 						<?php $count = 0; ?>
 						<tbody>
-								@foreach($housekeeping as $h)
+								@foreach($housekeeping as $house=>$h)
 								<?php $count++; ?>
 								<tr>
 									<td>{{$count}}</td>
+                  <td>{{$h->location}}</td>
+                  <td>{{$h->category}}</td>
+                  <td>{{$h->subcategory}}</td>
 									<td>{{$h->item_name}}</td>
-									<td>
-                    @if( ($h->current_stock - $h->initial_stock) < 0 )
-                    <label class="badge badge-danger" style="width:50px">{{$h->current_stock - $h->initial_stock}}</label>
-                    @elseif( ($h->current_stock - $h->initial_stock) == 0 )
-                    <label class="badge badge-secondary" style="width:50px">{{$h->current_stock - $h->initial_stock}}</label>
-                    @else
-                    <label class="badge badge-success" style="width:50px">{{$h->current_stock - $h->initial_stock}}</label>
-                    @endif
+                  <td class="text-right">{{$h->current_stock}}</td>
+                  @if( ($h->current_stock - $h->initial_stock) < 0 )
+                  <td class="text-danger text-right">{{$h->current_stock - $h->initial_stock}} <i class="ti-arrow-down"></i></td>
+                  @elseif( ($h->current_stock - $h->initial_stock) == 0 )
+                  <td class="text-right">{{$h->current_stock - $h->initial_stock}}</td>
+                  @else
+                  <td class="text-success text-right">{{$h->current_stock - $h->initial_stock}} <i class="ti-arrow-up"></i></td>
+                  @endif
+                  <td class="text-center">
+                    <a href="{{url('housekeeping/view/'.$h->id)}}" class="badge badge-info" data-toggle="tooltip" data-title="Edit">
+										<i class="ti-eye"></i>
+										</a>
+                    <a href="{{url('housekeeping/edit/'.$h->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit">
+										<i class="ti-pencil"></i>
+										</a>
                   </td>
 								</tr>
-
 								@endforeach
 						</tbody>
 						</table>
-            
       </div>
     </div>
   </div>
 </div>
+
+
+
 
 
 
@@ -83,9 +99,12 @@
   });
 </script>
 
-<style>
-tr.collapse.in {
-  display:table-row;
-}</style>
+<script>
+  $( function() {
+    $( "#progressbar" ).progressbar({
+      value: 37
+    });
+  } );
+  </script>
 
 @endsection
