@@ -13,6 +13,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
@@ -60,27 +61,29 @@
                     </div>
                     <h5 class="text-dark pl-1" style="background-color:#d8e3fe">Item Information</h5>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-3">
+                            @if(empty($housekeeping->item_image))
+                            <img src="{{ url('skydash/template/images/default-image.jpeg') }}" class="img-fluid img-thumbnail" >
+                            @else
+                            <img src="{{ url('public/housekeeping_image/'.$housekeeping->item_image) }}" class="img-fluid img-thumbnail" >
+                            @endif
+                        </div>
+                        <div class="col-md-9">
                             <div class="form-group">
                                 <label>Item Name</label>
                                 <input type="text" class="form-control" name="item_name" value="{{$housekeeping->item_name}}" required>
                             </div>
-                        </div>
-                        <div class="col-md-12">
                             <div class="form-group">
                                 <label>Item Detail</label>
-                                <textarea class="form-control" rows="5" name="item_description" value="{{$housekeeping->item_description}}"></textarea>
+                                <textarea class="form-control" rows="5" name="item_description">{{$housekeeping->item_description}}</textarea>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Item Image</label>
-                                <div class="input-group control-group increment" >
-                                    <input type="file" class="form-control file-upload-info" name="item_image" multiple>
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-success" type="button"><i class="nav-icon fas fa-plus"></i> ADD</button>
-                                    </span>
-                                </div>
+                                <input type="file" class="form-control file-upload-info" name="lampiran">
                             </div>
                         </div>
                         <div class="col-md-6">

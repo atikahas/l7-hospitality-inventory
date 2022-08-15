@@ -51,18 +51,18 @@
 									<td>{{$h->item_name}}</td>
                   <td class="text-right">{{$h->current_stock}}</td>
                   @if( ($h->current_stock - $h->initial_stock) < 0 )
-                  <td class="text-danger text-right">{{$h->current_stock - $h->initial_stock}} <i class="ti-arrow-down"></i></td>
+                  <td class="text-right"><label class="badge badge-danger" style="width: 50%"><b>{{$h->current_stock - $h->initial_stock}}</b></label></td>
                   @elseif( ($h->current_stock - $h->initial_stock) == 0 )
-                  <td class="text-right">{{$h->current_stock - $h->initial_stock}}</td>
+                  <td class="text-right"><label class="badge badge-secondary" style="width: 50%"><b>{{$h->current_stock - $h->initial_stock}}</b></label></td>
                   @else
-                  <td class="text-success text-right">{{$h->current_stock - $h->initial_stock}} <i class="ti-arrow-up"></i></td>
+                  <td class="text-right"><label class="badge badge-success" style="width: 50%"><b>{{$h->current_stock - $h->initial_stock}}</b></label></td>
                   @endif
                   <td class="text-center">
                     <a href="{{url('housekeeping/view/'.$h->id)}}" class="badge badge-info" data-toggle="tooltip" data-title="Edit">
-										<i class="ti-eye"></i>
+										View 
 										</a>
-                    <a href="{{url('housekeeping/edit/'.$h->id)}}" class="badge badge-secondary" data-toggle="tooltip" data-title="Edit">
-										<i class="ti-pencil"></i>
+                    <a href="{{url('housekeeping/edit/'.$h->id)}}" class="badge badge-warning" data-toggle="tooltip" data-title="Edit">
+										Edit
 										</a>
                   </td>
 								</tr>

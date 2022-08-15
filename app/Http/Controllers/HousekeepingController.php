@@ -8,6 +8,7 @@ use DB;
 use Auth;
 use App\User;
 use App\Models\Housekeeping;
+use App\Models\HousekeepingImage;
 
 class HousekeepingController extends Controller
 {
@@ -33,5 +34,22 @@ class HousekeepingController extends Controller
 
     public function edit(Housekeeping $housekeeping) {
         return view('housekeeping.edit', ['housekeeping' => $housekeeping]);
+    }
+
+    public function update(Request $request, Housekeeping $housekeeping, HousekeepingImage $housekeepingimage) {
+        try {
+            $data = $request->except(['_token']);
+            if ($files = $request->file('lampiran')) {
+                $destinationPath = 'public/housekeeping_image/'; // upload path
+                $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+                $files->move($destinationPath, $profileImage);
+                $data['item_image'] = "$profileImage";
+                }
+            $housekeeping->update($data);
+
+            return redirect('housekeeping')->with('success', 'Item Housekeeping Updated.');
+        } catch(\Exception $e) {
+            return back()->with('error', $e->getMessage())->withInput();
+        }
     }
 }
