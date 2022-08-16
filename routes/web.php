@@ -85,11 +85,12 @@ Route::group(['middleware' => ['logs']], function() {
          Route::get('data/getCategory', 'DropdownController@getCategory');
          Route::get('data/getSubCategory', 'DropdownController@getSubCategory');
 
-         //Housekeeping
-         Route::get('housekeeping', 'HousekeepingController@index');
-         Route::get('housekeeping/add', 'HousekeepingController@add');
-         Route::get('housekeeping/edit/{housekeeping}', 'HousekeepingController@edit');
-         Route::post('housekeeping/edit/{housekeeping}', 'HousekeepingController@update');
+         //Item
+         Route::get('item', 'ItemController@index');
+         Route::get('item/add', 'ItemController@add');
+         Route::post('item/add/store', 'ItemController@store');
+         Route::get('item/edit/{item}', 'ItemController@edit');
+         Route::post('item/edit/{item}', 'ItemController@update');
 
     });
 });

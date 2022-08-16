@@ -76,10 +76,10 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item @yield('housekeeping')">
-            <a class="nav-link" href="{{url('housekeeping')}}">
-              <i class="ti-brush-alt menu-icon"></i>
-              <span class="menu-title">Housekeeping</span>
+          <li class="nav-item @yield('item_management')">
+            <a class="nav-link" href="{{url('item')}}">
+              <i class="ti-bag menu-icon"></i>
+              <span class="menu-title">Item Management</span>
             </a>
           </li>
 

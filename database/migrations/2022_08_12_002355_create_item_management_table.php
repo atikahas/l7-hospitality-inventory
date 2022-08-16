@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemHousekeepingTable extends Migration
+class CreateItemManagementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateItemHousekeepingTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_housekeeping', function (Blueprint $table) {
+        Schema::create('item_management', function (Blueprint $table) {
             $table->id();
             $table->integer('location_id')->nullable();
             $table->integer('sublocation_id')->nullable();

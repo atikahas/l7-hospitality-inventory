@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
-class Housekeeping extends Model
+class Item extends Model
 {
-    protected $table = 'item_housekeeping';
+    protected $table = 'item_management';
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
 

@@ -1,7 +1,7 @@
 @extends('layouts.skydash')
-@section('title', 'Housekeeping')
+@section('title', 'Item Management')
 <!-- @section('location_menu', 'side-dropdown show') -->
-@section('housekeeping', 'active')
+@section('item_management', 'active')
 <!-- @section('view_location', 'active') -->
 @section('content')
 
@@ -19,7 +19,7 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <form class="forms-sample" action="{{url('wishlist/add/store')}}" method="post" enctype="multipart/form-data">
+                <form class="forms-sample" action="{{url('item/add/store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                     <h5 class="text-dark pl-1" style="background-color:#d8e3fe">Location & Category Information</h5>
                     <div class="row">
@@ -59,17 +59,14 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Item Detail</label>
-                                <textarea class="form-control" rows="5" name="keterangan" required></textarea>
+                                <textarea class="form-control" rows="5" name="item_description" required></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Item Image</label>
                                 <div class="input-group control-group increment" >
-                                    <input type="file" class="form-control file-upload-info" name="item_image" multiple>
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-success" type="button"><i class="nav-icon fas fa-plus"></i> ADD</button>
-                                    </span>
+                                    <input type="file" class="form-control file-upload-info" name="lampiran">
                                 </div>
                             </div>
                         </div>

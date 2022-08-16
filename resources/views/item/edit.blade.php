@@ -25,36 +25,36 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Location</label>
-                                <input type="text" class="form-control" name="location_id" value="{{$housekeeping->Location()}}" disabled>
+                                <input type="text" class="form-control" name="location_id" value="{{$item->Location()}}" disabled>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>SubLocation</label>
-                                    @if(empty($housekeeping->sublocation_id))
+                                    @if(empty($item->sublocation_id))
                                     <input type="text" class="form-control" name="sublocation_id" value="" disabled>
                                     @else
-                                    <input type="text" class="form-control" name="sublocation_id" value="{{$housekeeping->SubLocation()}}" disabled>
+                                    <input type="text" class="form-control" name="sublocation_id" value="{{$item->SubLocation()}}" disabled>
                                     @endif
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Category</label>
-                                    @if(empty($housekeeping->category_id))
+                                    @if(empty($item->category_id))
                                     <input type="text" class="form-control" name="sublocation_id" value="" disabled>
                                     @else
-                                    <input type="text" class="form-control" name="sublocation_id" value="{{$housekeeping->Category()}}" disabled>
+                                    <input type="text" class="form-control" name="sublocation_id" value="{{$item->Category()}}" disabled>
                                     @endif
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>SubCategory</label>
-                                    @if(empty($housekeeping->subcategory_id))
+                                    @if(empty($item->subcategory_id))
                                     <input type="text" class="form-control" name="subcategory_id" value="" disabled>
                                     @else
-                                    <input type="text" class="form-control" name="subcategory_id" value="{{$housekeeping->SubCategory()}}" disabled>
+                                    <input type="text" class="form-control" name="subcategory_id" value="{{$item->SubCategory()}}" disabled>
                                     @endif
                             </div>
                         </div>
@@ -62,20 +62,20 @@
                     <h5 class="text-dark pl-1" style="background-color:#d8e3fe">Item Information</h5>
                     <div class="row">
                         <div class="col-md-3">
-                            @if(empty($housekeeping->item_image))
+                            @if(empty($item->item_image))
                             <img src="{{ url('skydash/template/images/default-image.jpeg') }}" class="img-fluid img-thumbnail" >
                             @else
-                            <img src="{{ url('public/housekeeping_image/'.$housekeeping->item_image) }}" class="img-fluid img-thumbnail" >
+                            <img src="{{ url('public/item_image/'.$item->item_image) }}" class="img-fluid img-thumbnail" >
                             @endif
                         </div>
                         <div class="col-md-9">
                             <div class="form-group">
                                 <label>Item Name</label>
-                                <input type="text" class="form-control" name="item_name" value="{{$housekeeping->item_name}}" required>
+                                <input type="text" class="form-control" name="item_name" value="{{$item->item_name}}" required>
                             </div>
                             <div class="form-group">
                                 <label>Item Detail</label>
-                                <textarea class="form-control" rows="5" name="item_description">{{$housekeeping->item_description}}</textarea>
+                                <textarea class="form-control" rows="5" name="item_description">{{$item->item_description}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -89,25 +89,25 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchased Date</label>
-                                <input type="date" class="form-control" name="purchase_date" value="{{$housekeeping->purchase_date}}">
+                                <input type="date" class="form-control" name="purchase_date" value="{{$item->purchase_date}}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchase Price (RM) Per Unit</label>
-                                <input type="text" class="form-control" name="purchase_price" value="{{$housekeeping->purchase_price}}">
+                                <input type="text" class="form-control" name="purchase_price" value="{{$item->purchase_price}}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchase Shop/Location</label>
-                                <input type="text" class="form-control" name="purchase_location" value="{{$housekeeping->purchase_location}}">
+                                <input type="text" class="form-control" name="purchase_location" value="{{$item->purchase_location}}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchase URL/Link</label>
-                                <input type="text" class="form-control" name="purchase_link" value="{{$housekeeping->purchase_link}}">
+                                <input type="text" class="form-control" name="purchase_link" value="{{$item->purchase_link}}">
                             </div>
                         </div>
                     </div>
@@ -116,13 +116,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Initial Stock</label>
-                                <input type="text" class="form-control" name="initial_stock" value="{{$housekeeping->initial_stock}}" disabled>
+                                <input type="text" class="form-control" name="initial_stock" value="{{$item->initial_stock}}" disabled>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Current Stock</label>
-                                <input type="text" class="form-control" name="current_stock" value="{{$housekeeping->current_stock}}">
+                                <input type="text" class="form-control" name="current_stock" value="{{$item->current_stock}}">
                             </div>
                         </div>
                     </div>
