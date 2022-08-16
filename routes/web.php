@@ -92,5 +92,12 @@ Route::group(['middleware' => ['logs']], function() {
          Route::get('item/edit/{item}', 'ItemController@edit');
          Route::post('item/edit/{item}', 'ItemController@update');
 
+         //Purchasing
+         Route::get('purchase', 'PurchaseController@index');
+         Route::get('purchase/add', 'PurchaseController@add');
+         Route::post('purchase/add/store', 'PurchaseController@store');
+         Route::get('purchase/edit/{item}', 'PurchaseController@edit');
+         Route::post('purchase/edit/{item}', 'PurchaseController@update');
+
     });
 });

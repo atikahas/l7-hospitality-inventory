@@ -35,7 +35,6 @@
               <th>SubCategory</th>
 							<th>Item</th>
               <th>In Stock</th>
-							<th>Stock Status</th>
               <th>Option</th>
 							</tr>
 						</thead>
@@ -50,13 +49,6 @@
                   <td>{{$i->subcategory}}</td>
 									<td>{{$i->item_name}}</td>
                   <td class="text-right">{{$i->current_stock}}</td>
-                  @if( ($i->current_stock - $i->initial_stock) < 0 )
-                  <td class="text-right"><label class="badge badge-danger" style="width: 50%"><b>{{$i->current_stock - $i->initial_stock}}</b></label></td>
-                  @elseif( ($i->current_stock - $i->initial_stock) == 0 )
-                  <td class="text-right"><label class="badge badge-secondary" style="width: 50%"><b>{{$i->current_stock - $i->initial_stock}}</b></label></td>
-                  @else
-                  <td class="text-right"><label class="badge badge-success" style="width: 50%"><b>{{$i->current_stock - $i->initial_stock}}</b></label></td>
-                  @endif
                   <td class="text-center">
                     <a href="{{url('item/view/'.$i->id)}}" class="badge badge-info" data-toggle="tooltip" data-title="Edit">
 										View 
@@ -99,12 +91,5 @@
   });
 </script>
 
-<script>
-  $( function() {
-    $( "#progressbar" ).progressbar({
-      value: 37
-    });
-  } );
-  </script>
 
 @endsection

@@ -82,6 +82,12 @@
               <span class="menu-title">Item Management</span>
             </a>
           </li>
+          <li class="nav-item @yield('purchasing_management')">
+            <a class="nav-link" href="{{url('purchase')}}">
+              <i class="ti-shopping-cart menu-icon"></i>
+              <span class="menu-title">Reorder Management</span>
+            </a>
+          </li>
 
           <!-- <li class="nav-item @yield('activity')">
             <a class="nav-link" data-toggle="collapse" href="#ui-activity" aria-expanded="false" aria-controls="ui-basic">
