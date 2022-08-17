@@ -29,12 +29,12 @@
                                 <select class="form-control form-control-sm" name="location_id" required></select>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <div class="form-group">
                                 <label>SubLocation</label>
                                 <select class="form-control form-control-sm" name="sublocation_id" required></select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>Category</label>

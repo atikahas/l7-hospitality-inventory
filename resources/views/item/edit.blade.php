@@ -1,14 +1,13 @@
 @extends('layouts.skydash')
-@section('title', 'Housekeeping')
-@section('housekeeping', 'active')
+@section('title', 'Item')
+@section('item', 'active')
 @section('content')
 
 <div class="row">
     <div class="col-md-12 grid-margin">
         <div class="row">
             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                <h3 class="font-weight-bold">Housekeeping Management</h3>
-                <h6 class="font-weight-normal mb-0">Edit housekeeping item.</h6>
+                <h3 class="font-weight-bold">Item Management</h3>
             </div>
         </div>
     </div>
@@ -22,13 +21,13 @@
                 @csrf
                     <h5 class="text-dark pl-1" style="background-color:#d8e3fe">Location & Category Information</h5>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Location</label>
                                 <input type="text" class="form-control" name="location_id" value="{{$item->Location()}}" disabled>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <div class="form-group">
                                 <label>SubLocation</label>
                                     @if(empty($item->sublocation_id))
@@ -37,8 +36,8 @@
                                     <input type="text" class="form-control" name="sublocation_id" value="{{$item->SubLocation()}}" disabled>
                                     @endif
                             </div>
-                        </div>
-                        <div class="col-md-3">
+                        </div> -->
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Category</label>
                                     @if(empty($item->category_id))
@@ -48,7 +47,7 @@
                                     @endif
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>SubCategory</label>
                                     @if(empty($item->subcategory_id))

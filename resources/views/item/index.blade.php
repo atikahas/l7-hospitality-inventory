@@ -9,7 +9,7 @@
     <div class="col-md-12 grid-margin">
         <div class="row">
             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                <h3 class="font-weight-bold">Item Management</h3>
+                <h3 class="font-weight-bold">Item Management: List</h3>
             </div>
         </div>
     </div>
@@ -25,7 +25,6 @@
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">List Item</h4>
             <table id="listhousekeeping" class="table table-bordered table-striped table-responsive table-hover">
 						<thead>
 							<tr>
@@ -48,7 +47,18 @@
                   <td>{{$i->category}}</td>
                   <td>{{$i->subcategory}}</td>
 									<td>{{$i->item_name}}</td>
-                  <td class="text-right">{{$i->current_stock}}</td>
+                  <td class="text-right">
+                      <div class="progress progress-md">
+                          @if($i->percentstock > 69)
+                          <div class="progress-bar bg-success" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                          @elseif($i->percentstock < 70 and $i->percentstock > 29)
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                          @elseif($i->percentstock < 30)
+                          <div class="progress-bar bg-danger" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                          @endif
+                      </div>
+                      {{$i->current_stock}} / {{$i->initial_stock}}
+                  </td>
                   <td class="text-center">
                     <a href="{{url('item/view/'.$i->id)}}" class="badge badge-info" data-toggle="tooltip" data-title="Edit">
 										View 

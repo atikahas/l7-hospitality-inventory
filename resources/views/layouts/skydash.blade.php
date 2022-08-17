@@ -85,7 +85,7 @@
           <li class="nav-item @yield('purchasing_management')">
             <a class="nav-link" href="{{url('purchase')}}">
               <i class="ti-shopping-cart menu-icon"></i>
-              <span class="menu-title">Reorder Management</span>
+              <span class="menu-title">Purchase Management</span>
             </a>
           </li>
 

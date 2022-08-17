@@ -18,6 +18,7 @@ class ItemController extends Controller
             item_location.name as location, 
             item_category.name as category, 
             item_subcategory.name as subcategory, 
+            ((item_management.`current_stock`/item_management.`initial_stock`)*100) as percentstock,
             item_management.*
             from item_location
             left join item_management on item_location.id = item_management.location_id
@@ -46,6 +47,10 @@ class ItemController extends Controller
         } catch(\Exception $e) {
             return back()->with('error', $e->getMessage())->withInput();
         }
+    }
+
+    public function view(Item $item) {
+        return view('item.view', ['item' => $item]);
     }
 
     public function edit(Item $item) {

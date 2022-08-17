@@ -52,7 +52,7 @@
                       </div>
                       <div class="col-md-6">
                         <p class="fs-30 mb-2 text-danger">{{$reorderstockhousekeeping}}</p>
-                        <p>Need Reorder Quantity</p>
+                        <p>Item Need to Purchase Quantity</p>
                       </div>
                     </div>
                   </div>
@@ -73,7 +73,7 @@
                       </div>
                       <div class="col-md-6">
                         <p class="fs-30 mb-2 text-danger">{{$reorderstockcutleries}}</p>
-                        <p>Need Reorder Quantity</p>
+                        <p>Item Need to Purchase Quantity</p>
                       </div>
                     </div>
                   </div>
