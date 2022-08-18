@@ -15,16 +15,19 @@
     </div>
 </div>
 <div class="row">
-  <div class="col-md-12 grid-margin">
-        <a href="{{url('item/add')}}" class="btn btn-outline-primary btn-icon-text" data-toggle="tooltip" data-title="Edit User">
-            <i class="ti-plus btn-icon-prepend"></i> Add Item
-        </a>
-  </div>
-</div>
-<div class="row">
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <a href="{{url('item/add')}}" class="btn btn-sm btn-primary btn-icon-text" data-toggle="tooltip" data-title="Edit User">
+              <i class="ti-plus btn-icon-prepend"></i> Add Item
+            </a>
+            <a href="" class="btn btn-sm btn-primary btn-icon-text" data-toggle="tooltip" data-title="Edit User">
+              <i class="ti-printer btn-icon-prepend"></i> Generate Report
+            </a>
+          </div>
+        </div>
             <table id="listhousekeeping" class="table table-bordered table-striped table-responsive table-hover">
 						<thead>
 							<tr>
@@ -49,13 +52,15 @@
 									<td>{{$i->item_name}}</td>
                   <td class="text-right">
                       <div class="progress progress-md">
-                          @if($i->percentstock > 69)
-                          <div class="progress-bar bg-success" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                          @elseif($i->percentstock < 70 and $i->percentstock > 29)
-                          <div class="progress-bar bg-warning" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                          @elseif($i->percentstock < 30)
-                          <div class="progress-bar bg-danger" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                          @endif
+                      @if($i->percentstock > 69 and $i->percentstock < 101)
+                      <div class="progress-bar bg-success" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                      @elseif($i->percentstock > 100)
+                      <div class="progress-bar bg-info" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                      @elseif($i->percentstock < 70 and $i->percentstock > 29)
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                      @elseif($i->percentstock < 30)
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: {{$i->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                      @endif
                       </div>
                       {{$i->current_stock}} / {{$i->initial_stock}}
                   </td>

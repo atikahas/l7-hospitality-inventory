@@ -51,7 +51,9 @@
                         <p>Current Item Quantity</p>
                       </div>
                       <div class="col-md-6">
-                        <p class="fs-30 mb-2 text-danger">{{$reorderstockhousekeeping}}</p>
+                        @foreach($reorderstockhousekeeping as $r)
+                        <p class="fs-30 mb-2 text-danger">{{$r->balance}}</p>
+                        @endforeach
                         <p>Item Need to Purchase Quantity</p>
                       </div>
                     </div>
@@ -72,7 +74,9 @@
                         <p>Current Item Quantity</p>
                       </div>
                       <div class="col-md-6">
-                        <p class="fs-30 mb-2 text-danger">{{$reorderstockcutleries}}</p>
+                        @foreach($reorderstockcutleries as $r)
+                        <p class="fs-30 mb-2 text-danger">{{$r->balance}}</p>
+                        @endforeach
                         <p>Item Need to Purchase Quantity</p>
                       </div>
                     </div>
@@ -93,11 +97,19 @@
             <table class="table table-borderless report-table">
               @foreach($stockhousekeeping as $s)
               <tr>
-                <td class="text-muted">{{$s->subcategory}}</td>
+                <td class="text-muted">
+                  @if($s->percentstock < 30 or $s->percentstock == 0)
+                  <label class="badge badge-danger"><b>{{$s->subcategory}}<i class="ti-alert btn-icon-prepend"></i></b></label> 
+                  @else
+                  {{$s->subcategory}}
+                  @endif
+                </td>
                 <td class="w-100 px-0">
                   <div class="progress progress-md mx-4">
-                    @if($s->percentstock > 69)
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: {{$s->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    @if($s->percentstock > 69 and $s->percentstock < 101)
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{$s->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    @elseif($s->percentstock > 100)
+                    <div class="progress-bar bg-info" role="progressbar" style="width: {{$s->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                     @elseif($s->percentstock < 70 and $s->percentstock > 29)
                     <div class="progress-bar bg-warning" role="progressbar" style="width: {{$s->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                     @elseif($s->percentstock < 30)
@@ -123,11 +135,19 @@
             <table class="table table-borderless report-table">
               @foreach($stockcutleries as $c)
               <tr>
-                <td class="text-muted">{{$c->subcategory}}</td>
+                <td class="text-muted">
+                  @if($c->percentstock < 30 or $c->percentstock == 0)
+                  <label class="badge badge-danger"><b>{{$c->subcategory}}<i class="ti-alert btn-icon-prepend"></i></b></label> 
+                  @else
+                  {{$c->subcategory}}
+                  @endif
+                </td>
                 <td class="w-100 px-0">
                   <div class="progress progress-md mx-4">
-                    @if($c->percentstock > 69)
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: {{$c->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    @if($c->percentstock > 69 and $c->percentstock < 101)
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{$c->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    @elseif($c->percentstock > 100)
+                    <div class="progress-bar bg-info" role="progressbar" style="width: {{$c->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                     @elseif($c->percentstock < 70 and $c->percentstock > 29)
                     <div class="progress-bar bg-warning" role="progressbar" style="width: {{$c->percentstock}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                     @elseif($c->percentstock < 30)

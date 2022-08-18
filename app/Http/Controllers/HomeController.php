@@ -38,12 +38,23 @@ class HomeController extends Controller
         $counthousekeeping = Item::where('category_id', '=', 6)->count();
         $currentstockhousekeeping = Item::where('category_id', '=', 6)->sum('current_stock');
         $initialstockhousekeeping = Item::where('category_id', '=', 6)->sum('initial_stock');
-        $reorderstockhousekeeping = $initialstockhousekeeping - $currentstockhousekeeping;
+        $reorderstockhousekeeping = DB::select("
+            select sum(-(a.balance)) as balance
+            from
+            (select `current_stock`,`initial_stock`,item_name,
+            (`current_stock`-`initial_stock`) as balance
+            from item_management
+            where category_id = 6)a
+            where a.balance < 0
+        ");
+
         $stockhousekeeping = DB::select("
             select 
+            item_category.name as category, 
             item_subcategory.name as subcategory, 
-            sum(item_management.`initial_stock`) as initialstock,
-            sum(item_management.`current_stock`) as currentstock,
+            sum(item_management.current_stock) as currentstock,
+            sum(item_management.initial_stock) as initialstock,
+            ((sum(item_management.current_stock)) - (sum(item_management.initial_stock))) balancestock,
             ((sum(item_management.`current_stock`)/sum(item_management.`initial_stock`))*100) as percentstock
             from item_location
             left join item_management on item_location.id = item_management.location_id
@@ -56,7 +67,15 @@ class HomeController extends Controller
         $countcutleries = Item::where('category_id', '=', 2)->count();
         $currentstockcutleries = Item::where('category_id', '=', 2)->sum('current_stock');
         $initialstockcutleries = Item::where('category_id', '=', 2)->sum('initial_stock');
-        $reorderstockcutleries = $initialstockcutleries - $currentstockcutleries;
+        $reorderstockcutleries = DB::select("
+            select sum(-(a.balance)) as balance
+            from
+            (select `current_stock`,`initial_stock`,item_name,
+            (`current_stock`-`initial_stock`) as balance
+            from item_management
+            where category_id = 2)a
+            where a.balance < 0
+        ");
         $stockcutleries = DB::select("
             select 
             item_subcategory.name as subcategory, 
