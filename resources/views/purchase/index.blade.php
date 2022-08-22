@@ -1,5 +1,5 @@
 @extends('layouts.skydash')
-@section('title', 'Housekeeping')
+@section('title', 'Order Management')
 <!-- @section('location_menu', 'side-dropdown show') -->
 @section('housekeeping', 'active')
 <!-- @section('view_location', 'active') -->
@@ -9,7 +9,7 @@
     <div class="col-md-12 grid-margin">
         <div class="row">
             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                <h3 class="font-weight-bold">Purchase Management: List</h3>
+                <h3 class="font-weight-bold">Order Management: List</h3>
             </div>
         </div>
     </div>
@@ -17,8 +17,9 @@
 <div class="row">
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
+    <a href="#" rel="noopener" class="btn btn-default float-right" onclick="addEventListener( window.print())"><i class="fas fa-print"></i> Print</a>
       <div class="card-body">
-            <table id="listhousekeeping" class="table table-bordered table-striped table-responsive table-hover">
+            <table id="listpurchase" class="table table-bordered table-striped table-responsive table-hover">
                 <thead>
                 <tr>
                     <th style="width:5%">No.</th>
@@ -82,7 +83,7 @@
 
 <script>
   $(function () {
-	$('#listhousekeeping').DataTable({
+	$('#listpurchase').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,

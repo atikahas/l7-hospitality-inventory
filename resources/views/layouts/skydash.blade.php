@@ -2,16 +2,14 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>AR - @yield('title')</title>
-  <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/css/vendor.bundle.base.css') }}">
-  <link rel="stylesheet" href="{{ asset('skydash/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/ti-icons/css/themify-icons.css') }}">
+  <link rel="stylesheet" href="{{ asset('skydash/template/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('skydash/template/js/select.dataTables.min.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/select2/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('skydash/template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css') }}">
@@ -23,11 +21,10 @@
 </head>
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row"> 
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand " href="index.html">AR INVENTORY</a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('skydash/template/images/logo-mini.svg') }}" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('skydash/template/images/favicon_AR.png') }}" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -65,9 +62,7 @@
         </button>
       </div>
     </nav>
-    <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item @yield('dashboard')">
@@ -85,74 +80,44 @@
           <li class="nav-item @yield('purchasing_management')">
             <a class="nav-link" href="{{url('purchase')}}">
               <i class="ti-shopping-cart menu-icon"></i>
-              <span class="menu-title">Purchase Management</span>
+              <span class="menu-title">Order Management</span>
             </a>
           </li>
 
-          <!-- <li class="nav-item @yield('activity')">
-            <a class="nav-link" data-toggle="collapse" href="#ui-activity" aria-expanded="false" aria-controls="ui-basic">
-              <i class="ti-layout-list-thumb menu-icon"></i>
-              <span class="menu-title">Activity</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-activity">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">List Activity</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Add Activity</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Report Activity</a></li>
-              </ul>
-            </div>
-          </li> -->
-
         </ul>
       </nav>
-      <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
           @yield('content')
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
             <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022 TK. All rights reserved.</span>
           </div>
         </footer>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
 
-  <!-- plugins:js -->
   <script src="{{ asset('skydash/template/vendors/js/vendor.bundle.base.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
   <script src="{{ asset('skydash/template/vendors/chart.js/Chart.min.js') }}"></script>
   <script src="{{ asset('skydash/template/vendors/datatables.net/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('skydash/template/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
   <script src="{{ asset('skydash/template/js/dataTables.select.min.js') }}"></script>
   <script src="{{ asset('skydash/template/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
   <script src="{{ asset('skydash/template/vendors/select2/select2.min.js') }}"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
   <script src="{{ asset('skydash/template/js/off-canvas.js') }}"></script>
   <script src="{{ asset('skydash/template/js/hoverable-collapse.js') }}"></script>
   <script src="{{ asset('skydash/template/js/template.js') }}"></script>
   <script src="{{ asset('skydash/template/js/settings.js') }}"></script>
   <script src="{{ asset('skydash/template/js/todolist.js') }}"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
   <script src="{{ asset('skydash/template/js/dashboard.js') }}"></script>
   <script src="{{ asset('skydash/template/js/data-table.js') }}"></script>
   <script src="{{ asset('skydash/template/js/dataTables.select.min.js') }}"></script>
   <script src="{{ asset('skydash/template/js/Chart.roundedBarCharts.js') }}"></script>
   <script src="{{ asset('skydash/template/js/select2.js') }}"></script>
   <script src="{{ asset('skydash/template/vendors/pwstabs/jquery.pwstabs.min.js') }}"></script>
-  <!-- End custom js for this page-->
   <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
 	<script>
@@ -164,15 +129,6 @@
             toastr.danger("{{Session('error')}}");
             @endif
 
-    </script>
-    <script>
-      $(document).ready(function(){
-  $('.nav-item').each(function(tab,index){
-    if(index==0){
-     tab.addClass('active');
-    }
-  });
- });
     </script>
 
   @yield('footerScripts')

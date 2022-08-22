@@ -88,6 +88,7 @@ Route::group(['middleware' => ['logs']], function() {
          //Item
          Route::get('item', 'ItemController@index');
          Route::get('item/add', 'ItemController@add');
+         Route::get('item/report', 'ItemController@report');
          Route::post('item/add/store', 'ItemController@store');
          Route::get('item/view/{item}', 'ItemController@view');
          Route::get('item/edit/{item}', 'ItemController@edit');

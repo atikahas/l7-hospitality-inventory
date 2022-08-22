@@ -9,6 +9,10 @@ use Auth;
 use App\User;
 use App\Models\Item;
 use App\Models\ItemImage;
+use App\Models\Location;
+use App\Models\SubLocation;
+use App\Models\Category;
+use App\Models\SubCategory;
 
 class ItemController extends Controller
 {
@@ -31,6 +35,32 @@ class ItemController extends Controller
 
     public function add() {
         return view('item.add');
+    }
+
+    public function report(Request $request) {
+        $filter = $request->except(['page']);
+        foreach($filter as $index => $value) {
+            if($value == '' || $value == null) {
+                unset($filter[$index]);
+            }
+        }
+
+        $reportitem = new Item();
+        $reportitem = $reportitem->where($filter)->orderBy('location_id', 'ASC');
+        
+        $location = Location::all();
+        $sublocation = SubLocation::all();
+        $category = Category::all();
+        $subcategory = SubCategory::all();
+
+        return view('item.report', [
+            'filter' => $filter,
+            'reportitem' => $reportitem,
+            'location' => $location,
+            'sublocation' => $sublocation,
+            'category' => $category,
+            'subcategory' => $subcategory
+        ]);
     }
 
     public function store(Request $request) {
