@@ -33,6 +33,7 @@
             <tr>
               <th style="width:5%">No.</th>
               <th>Location</th>
+              <th>SubLocation</th>
               <th>Category</th>
               <th>SubCategory</th>
               <th>Item</th>
@@ -47,6 +48,7 @@
             <tr>
               <td>{{$count}}</td>
               <td>{{$i->location}}</td>
+              <td>{{$i->sublocation}}</td>
               <td>{{$i->category}}</td>
               <td>{{$i->subcategory}}</td>
               <td>{{$i->item_name}}</td>

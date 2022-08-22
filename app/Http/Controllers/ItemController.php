@@ -20,12 +20,14 @@ class ItemController extends Controller
         $item = DB::select("
             select 
             item_location.name as location, 
+            item_sublocation.name as sublocation, 
             item_category.name as category, 
             item_subcategory.name as subcategory, 
             ((item_management.`current_stock`/item_management.`initial_stock`)*100) as percentstock,
             item_management.*
             from item_location
             left join item_management on item_location.id = item_management.location_id
+            left join item_sublocation on item_sublocation.id = item_management.sublocation_id
             left join item_category on item_category.id = item_management.category_id
             left join item_subcategory on item_subcategory.id = item_management.subcategory_id
             where item_management.id is not null
