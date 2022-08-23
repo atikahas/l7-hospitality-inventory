@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['logs']], function() {
+Route::group(['middleware' => ['prevent-back-history']], function() {
     Route::get('/', function () {
         return view('welcome');
     });
@@ -23,8 +23,7 @@ Route::group(['middleware' => ['logs']], function() {
     // Route::group(['middleware' => 'auth'], function() {
     // Route::get('/home', 'HomeController@index')->name('home');
 
-        Route::group(['middleware' => 'prevent-back-history'],function(){
-        Auth::routes();
+        Route::group(['middleware' => 'auth'],function(){
         Route::get('/home', 'HomeController@index');
     
         // ADMIN

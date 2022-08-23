@@ -1,8 +1,6 @@
 @extends('layouts.skydash')
 @section('title', 'Order Management')
-<!-- @section('location_menu', 'side-dropdown show') -->
 @section('housekeeping', 'active')
-<!-- @section('view_location', 'active') -->
 @section('content')
 
 <div class="row">
@@ -17,8 +15,17 @@
 <div class="row">
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
-    <a href="#" rel="noopener" class="btn btn-default float-right" onclick="addEventListener( window.print())"><i class="fas fa-print"></i> Print</a>
       <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 grid-margin">
+                <a href="{{url('item/add')}}" class="btn btn-sm btn-primary btn-icon-text" data-toggle="tooltip" data-title="Edit User">
+                <i class="ti-plus btn-icon-prepend"></i> Add Item
+                </a>
+                <a href="{{url('item/report')}}" class="btn btn-sm btn-primary btn-icon-text" data-toggle="tooltip" data-title="Edit User">
+                <i class="ti-printer btn-icon-prepend"></i> Generate Report
+                </a>
+              </div>
+            </div>
             <table id="listpurchase" class="table table-bordered table-striped table-responsive table-hover">
                 <thead>
                 <tr>

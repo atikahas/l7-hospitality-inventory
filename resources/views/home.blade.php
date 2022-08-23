@@ -14,7 +14,7 @@
 </div>
 <div class="row">
     <div class="col-md-4 mb-4 stretch-card transparent">
-        <div class="card card-dark-blue">
+        <div class="card card-green">
             <div class="card-body" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                 <p class="mb-4">Total Location</p>
                 <p class="fs-30 mb-2">{{$totallocation}}</p>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="col-md-4 mb-4 stretch-card transparent">
-        <div class="card card-dark-blue">
+        <div class="card card-green">
             <div class="card-body">
                 <p class="mb-4">Total Category</p>
                 <p class="fs-30 mb-2">{{$totalcategory}}</p>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="col-md-4 mb-4 stretch-card transparent">
-        <div class="card card-dark-blue">
+        <div class="card card-green">
             <div class="card-body">
                 <p class="mb-4">Total SubCategory</p>
                 <p class="fs-30 mb-2">{{$totalsubcategory}}</p>
