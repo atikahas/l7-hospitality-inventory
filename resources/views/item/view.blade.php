@@ -1,6 +1,5 @@
 @extends('layouts.skydash')
 @section('title', 'Item Details')
-@section('item', 'active')
 @section('content')
 
 <div class="row">
@@ -42,19 +41,21 @@
                             </tr>
                             <tr>
                                 <td>Details</td>
-                                <td colspan="3">: {{$item->item_name}}</td>
+                                <td colspan="3">: {{$item->item_description}}</td>
                             </tr>
                             <tr>
                                 <td colspan="4" style="background-color:#d8e3fe">Location & Category Information</td>
                             </tr>
                             <tr>
                                 <td>Location</td>
-                                <td colspan="3">: {{$item->Location()}}</td>
+                                <td>: {{$item->Location()}}</td>
+                                <td>Category</td>
+                                <td>: {{$item->SubLocation()}}</td>
                             </tr>
                             <tr>
                                 <td>Category</td>
                                 <td>: {{$item->Category()}}</td>
-                                <td width="15%">SubCategory</td>
+                                <td>SubCategory</td>
                                 <td>: {{$item->SubCategory()}}</td>
                             </tr>
                             <tr>

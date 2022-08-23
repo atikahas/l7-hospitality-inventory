@@ -1,0 +1,6 @@
+.card-collapsible > .card-header:hover {
+    cursor: pointer;
+}
+.card-collapsed > .card-body {
+    display: none;
+}
