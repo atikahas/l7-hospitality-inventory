@@ -32,7 +32,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>SubLocation</label>
-                                <select class="form-control form-control-sm" name="sublocation_id" required></select>
+                                <select class="form-control form-control-sm" name="sublocation_id"></select>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -59,7 +59,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Item Detail</label>
-                                <textarea class="form-control" rows="5" name="item_description" required></textarea>
+                                <textarea class="form-control" rows="5" name="item_description"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -79,19 +79,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchase Price (RM) Per Unit</label>
-                                <input type="text" class="form-control" name="purchase_price" required>
+                                <input type="text" class="form-control" name="purchase_price">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchase Shop/Location</label>
-                                <input type="text" class="form-control" name="purchase_location" required>
+                                <input type="text" class="form-control" name="purchase_location">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchase URL/Link</label>
-                                <input type="text" class="form-control" name="purchase_link" required>
+                                <input type="text" class="form-control" name="purchase_link">
                             </div>
                         </div>
                     </div>
